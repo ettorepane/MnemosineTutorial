@@ -1,0 +1,19 @@
+<h1 class="title">Home</h1>
+
+<mat-card class="example-card" *ngFor="let post of posts">
+    <mat-card-header>
+      <mat-card-title>{{post.expand.owner.name}}</mat-card-title>
+      <mat-card-subtitle>@{{post.expand.owner.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{post.Contenuto}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE ({{post.likes.length}})</button>
+    </mat-card-actions>
+    <mat-card-content>
+        <div class="likedBy" *ngIf="post.likes.length != 0">
+            <p>Piaciuto da: {{post.expand.likes[0].name}}</p>
+        </div>
+    </mat-card-content>
+  </mat-card>
