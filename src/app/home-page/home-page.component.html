@@ -1,4 +1,23 @@
-<h1 class="title">Home</h1>
+<h1 class="title" *ngIf="!isLoggedIn">
+  Home
+</h1>
+
+<h1 class="title" *ngIf="isLoggedIn">
+  Bentornato, {{primoNome}}!
+</h1>
+
+<form action="" *ngIf="isLoggedIn" (submit)="OnSubmit()">
+  <mat-card class="example-card">
+    <mat-form-field>
+      <mat-label>A cosa stai pensando?</mat-label>
+      <textarea matInput [(ngModel)]="testoDaPub" name="Contenuto" required>
+      </textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Pubblica</button>
+  </mat-card>
+</form>
+
+
 
 <mat-card class="example-card" *ngFor="let post of posts">
     <mat-card-header>
